@@ -1,0 +1,14 @@
+@font-face {
+  font-family: sans;
+  src: url(../fonts/sans.ttf);
+}
+
+body {
+  font-family: sans !important;
+}
+
+.content {
+  margin: 2em 5em;
+  background-color: #fff;
+  padding: 2em;
+}

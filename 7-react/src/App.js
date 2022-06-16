@@ -16,12 +16,26 @@
 // import Stateless from './16-Stateless'
 // import ClassVsFunction from './17-ClassVsFunction'
 // import UseState from './18-UseState'
-import TableApp from './exercise/table/App'
+// import TableApp from './exercise/table/App'
+// import UseEffect from './19-UseEffect'
+// import AdvanceEffectState from './20-AdvanceEffectState'
+// import HooksRules from './21-HooksRules'
+// import CustomHooks from './22-CustomHooks'
+// import TodosUseState from './23-TodosUseState'
+// import UseReducer from './24-UseReducer'
+import TodosUseReducer from './25-TodosUseReducer'
 
 function App () {
   return (
     <div className='App'>
-      <TableApp />
+      <TodosUseReducer />
+      {/* <UseReducer /> */}
+      {/* <TodosUseState /> */}
+      {/* <CustomHooks /> */}
+      {/* <HooksRules /> */}
+      {/* <AdvanceEffectState /> */}
+      {/* <UseEffect /> */}
+      {/* <TableApp /> */}
       {/* <UseState /> */}
       {/* <ClassVsFunction /> */}
       {/* <Stateless /> */}
