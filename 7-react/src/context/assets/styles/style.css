@@ -1,0 +1,10 @@
+.box {
+  border: 1px solid;
+  margin: 0.5em;
+  padding: 1em;
+}
+
+.logout {
+  color: red;
+  margin-left: 1em;
+}

@@ -5,6 +5,7 @@ import Footer from './generic/Footer'
 import Header from './generic/Header'
 import Sidebar from './generic/Sidebar'
 import Dashboard from './generic/Dashboard'
+import PersonList from './PersonList'
 
 const { Content } = Layout
 
@@ -16,7 +17,8 @@ function App () {
         <Layout>
           <Sidebar />
           <Content className='content'>
-            <Dashboard />
+            {/* <Dashboard /> */}
+            <PersonList />
           </Content>
         </Layout>
         <Footer />

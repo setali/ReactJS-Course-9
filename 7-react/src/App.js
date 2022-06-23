@@ -23,12 +23,24 @@
 // import CustomHooks from './22-CustomHooks'
 // import TodosUseState from './23-TodosUseState'
 // import UseReducer from './24-UseReducer'
-import TodosUseReducer from './25-TodosUseReducer'
+// import TodosUseReducer from './25-TodosUseReducer'
+// import UseMemo from './26-UseMemo'
+// import Memo from './27-Memo'
+// import UseRef from './28-UseRef'
+// import UseCallback from './29-UseCallback'
+import Lazy from './session-5/30-Lazy/Main'
+// import Context from './context/App'
 
 function App () {
   return (
     <div className='App'>
-      <TodosUseReducer />
+      <Lazy />
+      {/* <Context /> */}
+      {/* <UseCallback /> */}
+      {/* <UseRef /> */}
+      {/* <Memo /> */}
+      {/* <UseMemo /> */}
+      {/* <TodosUseReducer /> */}
       {/* <UseReducer /> */}
       {/* <TodosUseState /> */}
       {/* <CustomHooks /> */}
