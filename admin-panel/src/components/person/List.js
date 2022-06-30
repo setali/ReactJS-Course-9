@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import request from '../tools/request'
-import Table from './utils/Table'
+import { EyeOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+import request from '../../tools/request'
+import Table from '../utils/Table'
 
 const columns = [
   { key: 'id', title: 'ID' },
@@ -10,6 +12,14 @@ const columns = [
     key: 'address',
     title: 'Address',
     render: (field, record) => `${field.city} ${field.street} ${record.phone}`
+  },
+  {
+    key: 'action',
+    render: (f, record) => (
+      <Link to={`/person/${record.id}`}>
+        <EyeOutlined />
+      </Link>
+    )
   }
 ]
 

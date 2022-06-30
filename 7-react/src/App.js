@@ -28,14 +28,14 @@
 // import Memo from './27-Memo'
 // import UseRef from './28-UseRef'
 // import UseCallback from './29-UseCallback'
-import Lazy from './session-5/30-Lazy/Main'
-// import Context from './context/App'
+// import Lazy from './session-5/30-Lazy/Main'
+import Context from './context/index'
 
 function App () {
   return (
     <div className='App'>
-      <Lazy />
-      {/* <Context /> */}
+      {/* <Lazy /> */}
+      <Context />
       {/* <UseCallback /> */}
       {/* <UseRef /> */}
       {/* <Memo /> */}

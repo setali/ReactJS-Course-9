@@ -21,7 +21,6 @@ request.interceptors.request.use(
 
 request.interceptors.response.use(
   function (response) {
-    console.log(response)
     response.data.name = 'Ali Mousavi'
     return response
   },

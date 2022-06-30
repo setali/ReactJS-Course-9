@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { getToken, removeToken, setToken } from '../tools/utils'
 import request from '../tools/request'
+import { useNavigate } from 'react-router-dom'
 
 export default function useAuth () {
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (getToken()) {
@@ -36,6 +38,7 @@ export default function useAuth () {
     setUser({})
     setIsLoggedIn(false)
     removeToken()
+    navigate('/login')
   }
 
   return {

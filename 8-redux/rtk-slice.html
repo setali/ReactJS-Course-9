@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux</title>
+  </head>
+  <body>
+    <h2>Redux slice toolkit</h2>
+
+    <span id="value"></span>
+    <button id="inc">+</button>
+    <button id="inc2">+2</button>
+    <button id="inc3">+3</button>
+    <button id="inc-if-odd">+ If Odd</button>
+    <button id="dec">-</button>
+    <button id="dec-async">- Async</button>
+
+    <script src="https://unpkg.com/@reduxjs/toolkit@1.8.3/dist/redux-toolkit.umd.js"></script>
+
+    <script>
+      const { reducer, actions } = RTK.createSlice({
+        name: 'Counter',
+        initialState: 10,
+        reducers: {
+          increase: (state, { payload }) => state + (payload || 1),
+          decrease: (state, { payload }) => state - (payload || 1)
+        }
+      })
+
+      const { increase, decrease } = actions
+
+      const store = RTK.configureStore({ reducer })
+      const { dispatch, getState, subscribe } = store
+
+      const value = document.getElementById('value')
+
+      function render () {
+        value.textContent = getState()
+      }
+
+      render()
+      subscribe(render)
+
+      document.getElementById('inc').addEventListener('click', () => {
+        dispatch(increase())
+      })
+
+      document.getElementById('inc2').addEventListener('click', () => {
+        dispatch(increase(2))
+      })
+
+      document.getElementById('inc3').addEventListener('click', () => {
+        dispatch(increase(3))
+      })
+
+      document.getElementById('inc-if-odd').addEventListener('click', () => {
+        if (getState() % 2) {
+          dispatch(increase())
+        }
+      })
+
+      document.getElementById('dec').addEventListener('click', () => {
+        dispatch(decrease())
+      })
+
+      document.getElementById('dec-async').addEventListener('click', () => {
+        setTimeout(() => dispatch(decrease()), 1000)
+      })
+    </script>
+  </body>
+</html>

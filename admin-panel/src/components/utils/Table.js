@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Table as AntTable } from 'antd'
 
-export default function Table ({ columns, data, ...props }) {
+export default function Table ({ columns, data, rowKey = 'id', ...props }) {
   const newColumns = useMemo(() => {
     return columns.map(column => ({
       dataIndex: column.key,
@@ -9,5 +9,12 @@ export default function Table ({ columns, data, ...props }) {
     }))
   }, [columns])
 
-  return <AntTable columns={newColumns} dataSource={data} {...props} />
+  return (
+    <AntTable
+      columns={newColumns}
+      dataSource={data}
+      rowKey={rowKey}
+      {...props}
+    />
+  )
 }

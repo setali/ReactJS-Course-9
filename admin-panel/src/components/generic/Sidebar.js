@@ -6,6 +6,7 @@ import {
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const { Sider } = Layout
 
@@ -20,12 +21,14 @@ function getItem (label, key, icon, children, type) {
 }
 
 const items = [
-  getItem('داشبورد', 'dashboard', <DashboardOutlined />),
+  getItem(<Link to='/'>داشبورد</Link>, 'dashboard', <DashboardOutlined />),
   getItem('مدیریت کاربران', 'users', <UserOutlined />, [
-    getItem('لیست کاربران', '5'),
-    getItem('افزودن کاربر', '6')
+    getItem(<Link to='/person'>لیست کاربران</Link>, '5'),
+    getItem(<Link to='/person/new'>افزودن کاربر</Link>, '6')
   ]),
-  getItem('مقالات', 'posts', <FormOutlined />, [getItem('لیست مقالات', '9')]),
+  getItem('مقالات', 'posts', <FormOutlined />, [
+    getItem(<Link to='/post'>لیست مقالات</Link>, '9')
+  ]),
   getItem('تنظیمات', 'settings', <SettingOutlined />, [getItem('Option', '10')])
 ] // submenu keys of first level
 

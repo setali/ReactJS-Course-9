@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import ThemeContext from '../contexts/ThemeContext'
-import UserContext from '../contexts/UserContext'
+import ThemeContext from '../../contexts/ThemeContext'
+import UserContext from '../../contexts/UserContext'
+import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
   render () {
@@ -28,7 +29,9 @@ export default class Header extends Component {
                         </span>
                       </span>
                     ) : (
-                      <span onClick={login}>Login</span>
+                      <span>
+                        <Link to='/login'>Login</Link>
+                      </span>
                     ))}
                 </div>
               </div>

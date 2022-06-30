@@ -8,3 +8,7 @@
   color: red;
   margin-left: 1em;
 }
+
+.active {
+  color: green;
+}
