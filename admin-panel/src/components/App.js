@@ -7,6 +7,7 @@ import Header from './generic/Header'
 import Sidebar from './generic/Sidebar'
 import Dashboard from './generic/Dashboard'
 import PersonRouter from './person/Router'
+import PostRouter from './post/Router'
 import Page404 from './generic/404'
 
 const { Content } = Layout
@@ -22,6 +23,7 @@ function App () {
             <Routes>
               <Route path='/' element={<Dashboard />} />
               <Route path='/person/*' element={<PersonRouter />} />
+              <Route path='/post/*' element={<PostRouter />} />
               <Route path='*' element={<Page404 />} />
             </Routes>
           </Content>

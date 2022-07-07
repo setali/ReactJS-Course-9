@@ -2,20 +2,13 @@ import { Divider } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import request from '../../tools/request'
-import { useDispatch, useSelector } from 'react-redux'
+import { connect } from 'react-redux'
 
-export default function Full () {
+function Full ({ setItems, person }) {
   const { id } = useParams()
-  const dispatch = useDispatch()
-
-  const person = useSelector(state => state.person)
-
-  function setItems (data) {
-    dispatch({ type: 'PERSON', payload: data })
-  }
 
   useEffect(() => {
-    request(`/users/${id}`).then(({ data }) => setItems(data))
+    request(`/users/${id}`).then(response => setItems(response.data))
   }, [id])
 
   return (
@@ -34,3 +27,17 @@ export default function Full () {
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return {
+    person: state.person
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setItem: data => dispatch({ type: 'PERSON', payload: data })
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Full)
