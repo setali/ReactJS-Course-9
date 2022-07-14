@@ -1,8 +1,8 @@
 import { Divider } from 'antd'
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import request from '../../tools/request'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import { getPerson } from '../../redux/actions/person'
 
 export default function Full () {
   const { id } = useParams()
@@ -10,12 +10,8 @@ export default function Full () {
 
   const person = useSelector(state => state.person)
 
-  function setItems (data) {
-    dispatch({ type: 'PERSON', payload: data })
-  }
-
   useEffect(() => {
-    request(`/users/${id}`).then(({ data }) => setItems(data))
+    dispatch(getPerson(id))
   }, [id])
 
   return (

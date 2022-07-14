@@ -2,7 +2,8 @@ import {
   DashboardOutlined,
   FormOutlined,
   SettingOutlined,
-  UserOutlined
+  UserOutlined,
+  CopyOutlined
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
 import { useState } from 'react'
@@ -28,6 +29,9 @@ const items = [
   ]),
   getItem('مقالات', 'posts', <FormOutlined />, [
     getItem(<Link to='/post'>لیست مقالات</Link>, '9')
+  ]),
+  getItem('کارها', 'todos', <CopyOutlined />, [
+    getItem(<Link to='/todo'>لیست کارها</Link>, '20')
   ]),
   getItem('تنظیمات', 'settings', <SettingOutlined />, [getItem('Option', '10')])
 ] // submenu keys of first level

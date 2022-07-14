@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 import { persons, person } from './person'
 import { posts, post } from './post'
+import { todos } from '../slice/todo'
 
 const reducer = combineReducers({
   persons,
   person,
   posts,
-  post
+  post,
+  todos
 })
 
 export default reducer

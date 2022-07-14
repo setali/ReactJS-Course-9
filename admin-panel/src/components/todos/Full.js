@@ -2,32 +2,32 @@ import { Divider } from 'antd'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
-import { getPost } from '../../redux/actions/post'
+import { getTodo } from '../../redux/slice/todo'
 
 export default function Full () {
   const { id } = useParams()
 
   const dispatch = useDispatch()
 
-  const post = useSelector(state => state.post)
+  const todo = useSelector(state => state.todos.item)
 
   useEffect(() => {
-    dispatch(getPost(id))
+    dispatch(getTodo(id))
   }, [id])
 
   return (
     <div>
-      <h3>نمایش مقاله</h3>
+      <h3>نمایش کار</h3>
       <Divider />
-      <label>عنوان مقاله</label>
+      <label>عنوان کار</label>
       <Divider type='vertical' />
-      <span>{post.title}</span>
+      <span>{todo.title}</span>
       <Divider />
-      <label>متن</label>
+      <label>وضعیت</label>
       <Divider type='vertical' />
-      <span>{post.body}</span>
+      <span>{todo.completed ? 'انجام شده' : 'در انتظار انجام'}</span>
       <Divider />
-      <Link to='/post'>بازگشت به لیست مقالات</Link>
+      <Link to='/todo'>بازگشت به لیست کارها</Link>
     </div>
   )
 }

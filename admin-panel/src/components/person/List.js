@@ -3,6 +3,7 @@ import { EyeOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import request from '../../tools/request'
 import Table from '../utils/Table'
+import { setPersons, getPersons } from '../../redux/actions/person'
 import { connect } from 'react-redux'
 
 const columns = [
@@ -26,7 +27,7 @@ const columns = [
 
 class PersonList extends Component {
   componentDidMount () {
-    request('/users').then(({ data }) => this.props.setItems(data))
+    this.props.getItems()
   }
 
   render () {
@@ -47,7 +48,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setItems: data => dispatch({ type: 'PERSONS', payload: data })
+  getItems: () => dispatch(getPersons())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonList)
