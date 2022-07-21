@@ -1,0 +1,20 @@
+.login-page {
+  font-family: arial;
+  float: right;
+  font-size: 24px;
+  margin: 25px;
+  width: 500px;
+  height: 300px;
+  outline: solid 1px gray;
+  padding: 2rem;
+  /* Setup */
+  position: relative;
+}
+
+.login-form {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  top: 50%;
+  left: 50%;
+}

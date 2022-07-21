@@ -10,28 +10,50 @@ import PersonRouter from './person/Router'
 import PostRouter from './post/Router'
 import TodoRouter from './todos/Router'
 import Page404 from './generic/404'
+import Login from './auth/Login'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getUser } from '../redux/actions/user'
+import Spinner from './utils/Spinner'
 
 const { Content } = Layout
 
 function App () {
+  const dispatch = useDispatch()
+
+  const isLoggedIn = useSelector(state => state.isLoggedIn)
+  const userIsLoading = useSelector(state => state.userIsLoading)
+
+  useEffect(() => {
+    dispatch(getUser())
+  }, [])
+
+  if (userIsLoading) {
+    return <Spinner />
+  }
+
   return (
     <div className='App'>
-      <Layout>
-        <Header />
+      {!isLoggedIn ? (
+        <Login />
+      ) : (
         <Layout>
-          <Sidebar />
-          <Content className='content'>
-            <Routes>
-              <Route path='/' element={<Dashboard />} />
-              <Route path='/person/*' element={<PersonRouter />} />
-              <Route path='/post/*' element={<PostRouter />} />
-              <Route path='/todo/*' element={<TodoRouter />} />
-              <Route path='*' element={<Page404 />} />
-            </Routes>
-          </Content>
+          <Header />
+          <Layout>
+            <Sidebar />
+            <Content className='content'>
+              <Routes>
+                <Route path='/' element={<Dashboard />} />
+                <Route path='/person/*' element={<PersonRouter />} />
+                <Route path='/post/*' element={<PostRouter />} />
+                <Route path='/todo/*' element={<TodoRouter />} />
+                <Route path='*' element={<Page404 />} />
+              </Routes>
+            </Content>
+          </Layout>
+          <Footer />
         </Layout>
-        <Footer />
-      </Layout>
+      )}
     </div>
   )
 }
